@@ -1,18 +1,22 @@
 import s from './Options.module.css';
 
-const Options = ({ onFeedbackCange }) => {
+const Options = ({ updateFeedback, resetFeedback, totalFeedback }) => {
   return (
     <>
-      <button onClick={() => onFeedbackCange('good')} className={s.button}>
+      <button onClick={() => updateFeedback('good')} className={s.button}>
         Good
       </button>
-      <button onClick={() => onFeedbackCange('neutral')} className={s.button}>
+      <button onClick={() => updateFeedback('neutral')} className={s.button}>
         Neutral
       </button>
-      <button onClick={() => onFeedbackCange('bad')} className={s.button}>
+      <button onClick={() => updateFeedback('bad')} className={s.button}>
         Bad
       </button>
-      <button className={s.button}>Reset</button>
+      {totalFeedback > 0 && (
+        <button onClick={resetFeedback} className={s.button}>
+          Reset
+        </button>
+      )}
     </>
   );
 };
