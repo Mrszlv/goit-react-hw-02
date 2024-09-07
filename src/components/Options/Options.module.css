@@ -1,0 +1,18 @@
+.wrapBtn {
+  margin: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.button {
+  color: black;
+  background-color: greenyellow;
+  border: none;
+  box-shadow: 0 4px 6px rgba(128, 128, 128, 0.9);
+}
+
+.button:hover {
+  background-color: rgb(86, 138, 7);
+}

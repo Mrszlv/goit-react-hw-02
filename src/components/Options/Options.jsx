@@ -2,7 +2,7 @@ import s from './Options.module.css';
 
 const Options = ({ updateFeedback, resetFeedback, totalFeedback }) => {
   return (
-    <>
+    <div className={s.wrapBtn}>
       <button onClick={() => updateFeedback('good')} className={s.button}>
         Good
       </button>
@@ -17,7 +17,7 @@ const Options = ({ updateFeedback, resetFeedback, totalFeedback }) => {
           Reset
         </button>
       )}
-    </>
+    </div>
   );
 };
 

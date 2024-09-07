@@ -7,7 +7,9 @@ const Feedback = ({ good, neutral, bad, total, positivePercentange }) => {
         <li className={s.item}>Neutral: {neutral}</li>
         <li className={s.item}>Bad: {bad}</li>
         <li className={s.item}>Total: {total}</li>
-        <li className={s.item}>Positive: {positivePercentange}%</li>
+        <li className={`${s.item} ${s.itemColor}`}>
+          Positive: {positivePercentange}%
+        </li>
       </ul>
     </>
   );
