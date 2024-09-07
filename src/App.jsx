@@ -5,21 +5,12 @@ import Options from './components/Options/Options';
 import Notification from './components/Notification/Notification';
 
 const App = () => {
-  const [feedback, setFeedback] = useState({
-    good: 0,
-    neutral: 0,
-    bad: 0,
-  });
+  const [feedback, setFeedback] = useState(
+    () => JSON.parse(window.localStorage.getItem('feedback')) ?? 0
+  );
 
   useEffect(() => {
-    const storedFeedback = localStorage.getItem('fedback');
-    if (storedFeedback) {
-      setFeedback(JSON.parse(storedFeedback));
-    }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem('feedback', JSON.stringify(feedback));
+    window.localStorage.setItem('feedback', JSON.stringify(feedback));
   }, [feedback]);
 
   const updateFeedback = feedbackType => {
@@ -32,7 +23,6 @@ const App = () => {
   const resetFeedback = () => {
     const initialFeedback = { good: 0, neutral: 0, bad: 0 };
     setFeedback(initialFeedback);
-    localStorage.setItem('feedback', JSON.stringify(initialFeedback));
   };
 
   const totalFeedback = feedback.good + feedback.neutral + feedback.bad;
